@@ -11,19 +11,19 @@
 //      img: 'images/stefani.png'
 //  },
 //  cThree: {
-//      name:,
-//      age:,
-//      img:
+//      name: 'Shawn Mendez',
+//      age: 20,
+//      img: 'images/mendez.png'
 //  },
-//  cFour: {
-//      name:,
-//      age:,
-//      img:
+//  cFour: { 
+//      name: 'Bruno Mars',
+//      age: 33,
+//      img: 'images/bruno.png'
 //  },
 //  cFive: {
-//      name:,
-//      age:,
-//      img:
+//      name: 'Kelly Clarkson',
+//      age: 37,
+//      img: 'images/clarkson.png'
 //  }
 // }
 
