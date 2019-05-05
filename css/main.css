@@ -1,3 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-row: row;
+    grid-template-columns: 3fr 5fr 5fr 3fr;
+    grid-template-rows: 70px 70px 300px 200px;
+    grid-template-areas:
+    "info header header stickman"
+    "h3 h1 h1 stickman"
+    "h3 div div stickman"
+    "h3 input button stickman";
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: pink;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    font-size: 7vmin;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    background-color: blue; 
+}
+
+h1 {
+    grid-area: h1;
+    text-align: center;
+    font-size: 4vmin;
+}
+
+div {
+    grid-area: div;
+}
+
+div img {
+    justify-content: center;
+    margin: 0 31vmin 0 30vmin;
+    /* align-content: center; */
+}
+
+input {
+    grid-area: input;
+}
+
+button {
+    grid-area: button;
+}
+
+
+#info {
+    grid-area: info;
+    text-align: center;
+    background-color: red;
+}
+
+h3 {
+    grid-area: h3;
+}
+
+#stickMan {
+    grid-area: stickman;
+    text-align: center;
+    background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* start menu if I ever come back to it */
+
+/* body {
+    margin: 100px;
+    text-align: center;
+    background-color: black;
+}
+
 h1 {
     color: red;
+    font-size: 60px; 
+    background-color: white;
+    margin: 0 350px 15px 350px;
+    font-family: 'ZCOOL KuaiLe', cursive;
 }
+
+h2 {
+    color: red;
+    font-size: 35px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    padding: 50px 0 0 0;
+}
+
+p {
+    color: white;
+    margin: 5px;
+    padding: 5px 10px 50px 10px;
+    font-size: 20px;
+}
+
+button {
+    border-radius: 100%;
+    width: 150px;
+    height: 35px;
+    font-size: 25px;
+    background-color: red;
+    border-color: red;
+    color: white;
+    font-family: 'ZCOOL KuaiLe', cursive;
+} */
