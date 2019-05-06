@@ -63,32 +63,32 @@ function handleNext() {
 }
 //Figure out a way to loop MAPS
 function render() {
-
    if(turn === 0) {
-    
      cardOne.setAttribute('src', 'images/pharrell.png');
      document.getElementById('gameboard').append(cardOne); 
+     gameboard.replaceChild(cardOne, cardBack);
      turn++;
     } else if(turn === 1) {
       cardTwo.setAttribute('src', 'images/stefani.png');
       document.getElementById('gameboard').append(cardTwo);
+      gameboard.replaceChild(cardTwo, cardOne);
       turn++;
-     } else if(turn === 2) {
+    }  else if(turn === 2) {
        cardThree.setAttribute('src', 'images/mendez.png');
        document.getElementById('gameboard').append(cardThree);
+       gameboard.replaceChild(cardThree, cardTwo);
        turn++
-      } else if(turn === 3) {
+    }   else if(turn === 3) {
         cardFour.setAttribute('src', 'images/bruno.png');
         document.getElementById('gameboard').append(cardFour);
+        gameboard.replaceChild(cardFour, cardThree);
         turn++
-       } else if(turn === 4) {
+    }    else if(turn === 4) {
          cardFive.setAttribute('src', 'images/clarkson.png');
          document.getElementById('gameboard').append(cardFive);
+         gameboard.replaceChild(cardFive, cardFour);
          turn++
-        } else alert("you survived!");
-
-        console.log(turn);
-        
+        } else alert("you survived!"); 
 }
 
 
