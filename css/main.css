@@ -12,7 +12,7 @@ body {
     "info header header stickman"
     "h3 h1 h1 stickman"
     "h3 div div stickman"
-    "h3 input button stickman";
+    "input button nextCard stickman";
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -39,7 +39,7 @@ div {
 
 div img {
     justify-content: center;
-    margin: 0 31vmin 0 30vmin;
+    margin: 0 30vmin 0 30vmin;
     /* align-content: center; */
 }
 
@@ -47,10 +47,13 @@ input {
     grid-area: input;
 }
 
-button {
+#submit {
     grid-area: button;
 }
 
+#nextCard {
+    grid-area: nextCard;
+}
 
 #info {
     grid-area: info;
