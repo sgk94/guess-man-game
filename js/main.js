@@ -1,5 +1,5 @@
 /*----- constants -----*/ 
-var celebs = {
+var celebs= {
  cOne: {
      name: 'Pharrell',
      age: 45,
@@ -25,10 +25,12 @@ var celebs = {
      age: 37,
      img: 'images/clarkson.png'
  }
-}
+};
+
+console.log(celebs.cOne);
 
 /*----- app's state (variables) -----*/ 
-let stickman, gameboard, cardBack, deckCount;
+let stickman, gameboard, cardBack, deckCount, turn;
 
 /*----- cached element references -----*/ 
 deckCount = document.querySelector('h3').textContent = ('5/5');
@@ -41,48 +43,57 @@ let cardFour = document.createElement('img')
 let cardFive = document.createElement('img')
 
 /*----- event listeners -----*/ 
-document.getElementById('submit').addEventListener('click', handleSubmit);
+// document.getElementById('submit').addEventListener('click', handleSubmit);
 document.getElementById('nextCard').addEventListener('click', handleNext);
 
 /*----- functions -----*/
 init();
 
-function checkAnswer() {
+// function checkAnswer() {
 
-}
+// }
 //handle click of the image
-function handleSubmit() {
-}
+// function handleSubmit() {
+// }
 
 function handleNext() {
-    document.getElementById('gameboard').removeChild(cardBack);
+    // document.getElementById('gameboard').removeChild(cardBack);
     render();
-    checkAnswer();
+    // checkAnswer();
+}
+//Figure out a way to loop MAPS
+function render() {
+
+   if(turn === 0) {
+    
+     cardOne.setAttribute('src', 'images/pharrell.png');
+     document.getElementById('gameboard').append(cardOne); 
+     turn++;
+    } else if(turn === 1) {
+      cardTwo.setAttribute('src', 'images/stefani.png');
+      document.getElementById('gameboard').append(cardTwo);
+      turn++;
+     } else if(turn === 2) {
+       cardThree.setAttribute('src', 'images/mendez.png');
+       document.getElementById('gameboard').append(cardThree);
+       turn++
+      } else if(turn === 3) {
+        cardFour.setAttribute('src', 'images/bruno.png');
+        document.getElementById('gameboard').append(cardFour);
+        turn++
+       } else if(turn === 4) {
+         cardFive.setAttribute('src', 'images/clarkson.png');
+         document.getElementById('gameboard').append(cardFive);
+         turn++
+        } else alert("you survived!");
+
+        console.log(turn);
+        
 }
 
-function render() {
-for (i = 0; i < celebs.length; i++)
-console.log(i);
-   if(celebs[i] === 0) {
-     cardOnek.setAttribute('src', 'images/pharrell.png')
-     document.getElementById('gameboard').append(cardOne) 
-    } else if(celebs[i] === 1) {
-      cardTwo.setAttribute('src', 'images/stefani.png')
-      document.getElementById('gameboard').append(cardTwo)
-     } else if(celebs[i] === 2) {
-       cardThree.setAttribute('src', 'images/mendez.png')
-       document.getElementById('gameboard').append(cardThree)
-      } else if(celebs[i] === 3) {
-        cardFour.setAttribute('src', 'images/bruno.png')
-        document.getElementById('gameboard').append(cardFour)
-       } else if(celebs[i] === 4) {
-         cardFive.setAttribute('src', 'images/clarkson.png')
-         document.getElementById('gameboard').append(cardFive)
-        } else return;
-}
 
 function init() {
     cardBack.setAttribute('src', 'images/empty.png')
     document.getElementById('gameboard').append(cardBack)
+    turn = 0;
 }
-
