@@ -6,13 +6,14 @@ body {
     height: 100vh;
     display: grid;
     grid-row: row;
-    grid-template-columns: 3fr 5fr 5fr 3fr;
-    grid-template-rows: 70px 70px 300px 200px;
+    grid-template-columns: 4fr 5fr 5fr 4fr;
+    grid-template-rows: 70px 70px 300px 70px 70px;
     grid-template-areas:
     "info header header stickman"
     "h3 h1 h1 stickman"
-    "h3 div div stickman"
-    "input button nextCard stickman";
+    "guessboard div div stickman"
+    "guessboard div div stickman"
+    "form form nextCard stickman";
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -29,8 +30,11 @@ header {
 
 h1 {
     grid-area: h1;
+    background-color: grey;
     text-align: center;
     font-size: 4vmin;
+    align-content: center;
+    justify-content: center;
 }
 
 div {
@@ -40,19 +44,29 @@ div {
 div img {
     justify-content: center;
     margin: 0 30vmin 0 30vmin;
-    /* align-content: center; */
 }
 
-input {
-    grid-area: input;
+input[type=submit] {
+    background-color: yellow;
+    width: 41vmin;
+    height: 8vmin;
+    padding: 0;
+    margin: 0;
 }
 
-#submit {
-    grid-area: button;
+input[type=text] {
+    width: 41vmin;
+    height: 8vmin;
+    padding: 0;
+    margin: 0;
 }
 
 #nextCard {
     grid-area: nextCard;
+    width: 41vmin;
+    height: 8vmin;
+    padding: 0;
+    margin: 6px;
 }
 
 #info {
@@ -63,12 +77,36 @@ input {
 
 h3 {
     grid-area: h3;
+    text-align: center;
+    font-size: 5vmin;
+    justify-content: center;
+    align-content: center;
+}
+
+form {
+    grid-area:form;
 }
 
 #stickMan {
     grid-area: stickman;
     text-align: center;
     background-color: green;
+}
+
+#number {
+    font-size: 5vmin;
+    grid-area: number;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#guessboard {
+    grid-area: guessboard;
+}
+
+#gameboard {
+    background-color: orange;
 }
 
 
