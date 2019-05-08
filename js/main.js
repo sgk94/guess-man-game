@@ -2,7 +2,7 @@
 var celebs= [
  {
      name: 'Pharrell Williams',
-     age: 45,
+     age: 46,
      img: 'images/pharrell.png'
  },
 {
@@ -11,9 +11,9 @@ var celebs= [
      img: 'images/stefani.png'
  },
  {
-     name: 'Shawn Mendez',
+     name: 'Shawn Mendes',
      age: 20,
-     img: 'images/smendez.png'
+     img: 'images/smendes.png'
  },
  { 
      name: 'Bruno Mars',
@@ -154,7 +154,7 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age"; 
     } 
     else if(turn === 2) {
-        card.setAttribute('src', 'images/smendez.png');
+        card.setAttribute('src', 'images/smendes.png');
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
