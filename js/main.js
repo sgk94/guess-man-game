@@ -44,6 +44,7 @@ let life = 10;
 let guess;
 let guessInt;
 let currentAnswer;
+let startInterval;
 
 /*----- event listeners -----*/ 
 document.getElementById('submit').addEventListener('click', handleSubmit);
@@ -75,30 +76,41 @@ function renderName() {
 
 function checkAnswer() {
     if(guessInt === currentAnswer) {
-    document.getElementById('alert').textContent = "Correct!";
-    renderNext();
-   } else if (life === 1) {
-     life--;
-     document.getElementById('alert').textContent = "You blew up!";
-     bomb.setAttribute('src', 'images/boom.png');
-    } else if (guessInt != currentAnswer) {
-      life--;
-      document.getElementById('alert').textContent = "Incorrect";
-     } else return checkAnswer;
+        document.getElementById('alert').textContent = "Correct!";
+        var nextInterval = setInterval(function() {
+          renderNext();
+          clearInterval(nextInterval);
+        }, 3000); 
+    } 
+    else if (life === 1) {
+        life--;
+        document.getElementById('alert').textContent = "You blew up!";
+        bomb.setAttribute('src', 'images/boom.png');
+    } 
+    else if (guessInt != currentAnswer) {
+        life--;
+        document.getElementById('alert').textContent = "Incorrect";
+    } 
+    else return checkAnswer;
 }
 
 function renderAnswer() {
     if(turn === 1) {
-    currentAnswer = celebs[0].age;
-    } else if(turn === 2) {
-      currentAnswer = celebs[1].age;
-     } else if(turn === 3) {
-       currentAnswer = celebs[2].age;
-      } else if(turn === 4) {
+        currentAnswer = celebs[0].age;
+    } 
+    else if(turn === 2) {
+        currentAnswer = celebs[1].age;
+    } 
+    else if(turn === 3) {
+        currentAnswer = celebs[2].age;
+    } 
+    else if(turn === 4) {
         currentAnswer = celebs[3].age;
-       } else if(turn === 5) {
-         currentAnswer = celebs[4].age;
-        } return renderAnswer;
+    } 
+    else if(turn === 5) {
+        currentAnswer = celebs[4].age;
+    } 
+    return renderAnswer;
 }
 
 function handleSubmit(evt) {
@@ -118,33 +130,40 @@ function handleNext() {
 
 function renderNext() {
     if(turn === 0) {
-    count--;
-    card.setAttribute('src', 'images/pharrell.png');
-    deckCount.innerHTML = count;
-    renderName();
-    celebName.innerHTML = cName;
-    turn++;
-    count--;
-    renderAnswer();
-    document.getElementById('alert').textContent = "Guess their age";
-  } else if(turn === 1) {
-    card.setAttribute('src', 'images/stefani.png');
-    deckCount.innerHTML = count;
-    renderName();
-    celebName.innerHTML = cName;
-    turn++;
-    count--;
-    renderAnswer();
-    setInterval(function(){document.getElementById('alert').textContent = "Guess their age"; }, 3000);
-     } else if(turn === 2) {
-       card.setAttribute('src', 'images/mendez.png');
-       deckCount.innerHTML = count;
-       renderName();
-       celebName.innerHTML = cName;
-       turn++
-       count--;
-       renderAnswer();
-      } else if(turn === 3) {
+        count--;
+        card.setAttribute('src', 'images/pharrell.png');
+        deckCount.innerHTML = count;
+        renderName();
+        celebName.innerHTML = cName;
+        turn++;
+        count--;
+        renderAnswer();
+        document.getElementById('alert').textContent = "Guess their age";
+    } 
+    else if(turn === 1) {
+        card.setAttribute('src', 'images/stefani.png');
+        deckCount.innerHTML = count;
+        renderName();
+        celebName.innerHTML = cName;
+        turn++;
+        count--;
+        renderAnswer();
+        startInterval = setInterval(function(){
+        document.getElementById('alert').textContent = "Guess their age"; 
+        clearInterval(startInterval);
+        }, 500);
+    
+    } 
+    else if(turn === 2) {
+        card.setAttribute('src', 'images/mendez.png');
+        deckCount.innerHTML = count;
+        renderName();
+        celebName.innerHTML = cName;
+        turn++
+        count--;
+        renderAnswer();
+    } 
+    else if(turn === 3) {
         card.setAttribute('src', 'images/bruno.png');
         deckCount.innerHTML = count;
         renderName();
@@ -152,14 +171,16 @@ function renderNext() {
         turn++;
         count--;
         renderAnswer();
-       } else if(turn === 4) {
-         card.setAttribute('src', 'images/clarkson.png');
-         deckCount.innerHTML = count;
-         renderName();
-         celebName.innerHTML = cName;
-         turn++
-         renderAnswer();
-        } else document.getElementById('alert').textContent = "Congrats! You survived!"
+    } 
+    else if(turn === 4) {
+        card.setAttribute('src', 'images/clarkson.png');
+        deckCount.innerHTML = count;
+        renderName();
+        celebName.innerHTML = cName;
+        turn++
+        renderAnswer();
+    } 
+    else document.getElementById('alert').textContent = "Congrats! You survived!"
 }
 
 function init() {
