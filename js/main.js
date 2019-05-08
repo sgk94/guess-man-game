@@ -49,11 +49,17 @@ let startInterval;
 /*----- event listeners -----*/ 
 document.getElementById('submit').addEventListener('click', handleSubmit);
 document.getElementById('nextCard').addEventListener('click', handleNext);
+document.getElementById('restart').addEventListener('click', restartHandler);
 
 /*----- functions -----*/
 init();
 
-//create something for explosion.png for when life is 0
+function restartHandler() {
+    init();
+    document.querySelector('form').style.display = "block";
+    document.getElementById('nextCard').style.display = "block";
+    document.getElementById('restart').style.display = "none";
+}
 
 function renderName() {
     if(turn === 0) {
@@ -80,7 +86,7 @@ function checkAnswer() {
         var nextInterval = setInterval(function() {
           renderNext();
           clearInterval(nextInterval);
-        }, 2000);
+        }, 1500);
     }
     else if (guessInt === currentAnswer && turn === 5) {
         document.getElementById('alert').textContent = "You survived!";
@@ -89,11 +95,18 @@ function checkAnswer() {
         life--;
         document.getElementById('alert').textContent = "You blew up!";
         bomb.setAttribute('src', 'images/boom.png');
+        document.querySelector('form').style.display = "none";
+        document.getElementById('nextCard').style.display = "none";
+        document.getElementById('restart').style.display = "block";
     } 
-    else if (guessInt != currentAnswer) {
+    else if (guessInt > currentAnswer) {
         life--;
-        document.getElementById('alert').textContent = "Incorrect";
+        document.getElementById('alert').textContent = "Incorrect, they are younger";
     } 
+    else if (guessInt < currentAnswer) {
+        life--;
+        document.getElementById('alert').textContent = "Incorrect, they are older"
+    }
     else return checkAnswer;
 }
 

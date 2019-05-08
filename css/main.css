@@ -14,7 +14,7 @@ body {
     "guessboard h1 h1 stickman"
     "guessboard div div stickman"
     "guessboard div div stickman"
-    "form form nextCard stickman";
+    "form form nextCard restart";
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -133,6 +133,10 @@ section img {
     margin: 0;
 }
 
+#restart {
+    grid-area: restart;
+    display: none;
+}
 
 
 
