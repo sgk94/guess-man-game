@@ -13,7 +13,7 @@ var celebs= [
  {
      name: 'Shawn Mendez',
      age: 20,
-     img: 'images/mendez.png'
+     img: 'images/smendez.png'
  },
  { 
      name: 'Bruno Mars',
@@ -154,7 +154,7 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age"; 
     } 
     else if(turn === 2) {
-        card.setAttribute('src', 'images/mendez.png');
+        card.setAttribute('src', 'images/smendez.png');
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
