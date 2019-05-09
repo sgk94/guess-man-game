@@ -8,6 +8,8 @@ const brunomagic = new Audio ('audio/24kmagic.mp3');
 const puth = new Audio ('audio/puth.mp3');
 const bombdefused = new Audio ('audio/bombdefused.mp3');
 const kidsyay = new Audio ('audio/kidsyay.mp3');
+const explosionSound = new Audio ('audio/explosion.mp3');
+const boo = new Audio ('audio/boo.mp3');
 
 const celebs = [
  {
@@ -92,6 +94,7 @@ function renderName() {
 }
 
 function checkAnswer() {
+    document.getElementById('number').value = "";
     if (guessInt === currentAnswer && turn < 5) {
         matchSound.play();
         document.getElementById('alert').textContent = "Correct!";
@@ -103,12 +106,17 @@ function checkAnswer() {
     else if (guessInt === currentAnswer && turn === 5) {
         puth.pause();
         document.getElementById('alert').textContent = "You defused the bomb!";
+        celebName.style.display = "none";
+        card.setAttribute('src', 'images/thumbsup.jpg');
         bombdefused.volume = .8;
         bombdefused.play();
         var celebration = setInterval(function() {
         kidsyay.play();
         clearInterval(celebration);
         }, 2000);
+        document.querySelector('form').style.display = "none";  
+        document.getElementById('nextCard').style.display = "none";
+        document.getElementById('restart').style.display = "block";
     } 
     else if (life === 0) {
         puth.pause();
@@ -116,7 +124,14 @@ function checkAnswer() {
         mendes.pause();
         happy.pause();
         stefani.pause();
+        explosionSound.play();
+        var booCrowd = setInterval(function() {
+        boo.play();
+        clearInterval(booCrowd);
+        }, 2000);
         document.getElementById('alert').textContent = "You blew up!";
+        celebName.style.display = "none";
+        card.setAttribute('src', 'images/thumbsdown.jpg');
         bomb.setAttribute('src', 'images/boom.png');
         document.querySelector('form').style.display = "none";  
         document.getElementById('nextCard').style.display = "none";
@@ -130,7 +145,7 @@ function checkAnswer() {
         var ageInterval = setInterval(function() {
           document.getElementById('alert').textContent = "Guess their age";
           clearInterval(ageInterval);
-        }, 2000);
+        }, 1000);
         
     } 
     else if (guessInt < currentAnswer) {
@@ -141,7 +156,7 @@ function checkAnswer() {
         var ageInterval = setInterval(function() {
           document.getElementById('alert').textContent = "Guess their age";
           clearInterval(ageInterval);
-        }, 2000);
+        }, 1000);
     }
     else return checkAnswer;
 }
@@ -252,8 +267,9 @@ function renderNext() {
 function init() {
     card.setAttribute('src', 'images/empty.png')
     document.getElementById('gameboard').append(card)
-    document.getElementById('alert').textContent = "Press next to start"
+    document.getElementById('alert').textContent = "Press Skip to start"
     lifeCount.innerHTML = 5;
+    life = 5;
     turn = 0;
     count = 5;
     deckCount.innerHTML = count;

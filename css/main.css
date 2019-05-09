@@ -3,7 +3,9 @@
 }
 
 body {
-    height: 100vh;
+    font-family: 'Stylish', sans-serif;
+    margin: 0;
+    height: 100%;
     display: grid;
     grid-row: row;
     grid-template-columns: 2fr 4fr 4fr 4fr;
@@ -18,24 +20,29 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: pink;
+    background-color: black;
 }
 
 header {
     grid-area: header;
     text-align: center;
-    font-size: 7vmin;
-    font-family: 'ZCOOL KuaiLe', cursive;
-    background-color: blue; 
+    font-size: 9vmin;
+    font-family: 'Stylish', sans-serif;
+    color: white;
 }
 
 h1 {
     grid-area: h1;
-    background-color: grey;
+    border-style: solid;
+    border-color: white;
     text-align: center;
     font-size: 4vmin;
     align-content: center;
     justify-content: center;
+    color: white;
+    width: 250px;
+    height: 50px;
+    margin: 0 280px 0 280px;
 }
 
 div {
@@ -48,42 +55,45 @@ div img {
 }
 
 input[type=submit] {
-    background-color: yellow;
-    width: 41vmin;
+    background-color: black;
+    font-size: 5vmin;
+    width: 35vmin;
     height: 8vmin;
     padding: 0;
-    margin: 0;
-}
-
-input[type=text] {
-    width: 41vmin;
-    height: 8vmin;
-    padding: 0;
-    margin: 0;
+    margin: 6px 0 0 40px;
+    font-family: 'Stylish', sans-serif;
+    color: white;
 }
 
 #nextCard {
     grid-area: nextCard;
-    width: 41vmin;
+    font-family: 'Stylish', sans-serif;
+    font-size: 5vmin;
+    width: 35vmin;
     height: 8vmin;
     padding: 0;
     margin: 6px;
+    color: white;
+    background-color: black;
 }
 
 #info {
     grid-area: info;
     text-align: center;
-    background-color: red;
+    color: white;
 }
 
 #cardCount {
     grid-area: h3;
-    font-size: 5vmin;
+    font-size: 10vmin;
     text-align: center;
+    color: white;
+    margin: 0;
 }
 
 form {
     grid-area:form;
+    font-family: 'Stylish', sans-serif;
 }
 
 #bombBoard {
@@ -98,35 +108,37 @@ form {
     text-align: center;
     justify-content: center;
     align-content: center;
+    font-family: 'Stylish', sans-serif;
+    
 }
 
 #guessboard {
     grid-area: guessboard;
 }
 
-#gameboard {
-    background-color: orange;
-}
-
 #alert {
     grid-area: alert;
     justify-content: center;
     align-content: center;
-    font-size: 6vmin;
+    font-size: 5vmin;
     text-align: center;
-    background-color: salmon;
+    border-color: white;
+    color: white;
+    padding: 5px 0px;
 }
 
 #lives {
     grid-area: lives;
     text-align: center;
-    background-color: white;
+    color: white;
 }
 
 #lifeCount {
     grid-area: lifeCount;
     text-align: center;
-    font-size: 5vmin;
+    font-size: 10vmin;
+    color: white;
+    margin: 0;
 }
 
 section img {
@@ -136,4 +148,24 @@ section img {
 #restart {
     grid-area: restart;
     display: none;
+    background-color: black;
+    font-size: 5vmin;
+    width: 35vmin;
+    height: 8vmin;
+    padding: 0;
+    margin: 6px 0 0 40px;
+    font-family: 'Stylish', sans-serif;
+    color: white;
+}
+
+img {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0;
+}
+
+#gameboard img {
+    margin: 0 280px 0 280px;
+    justify-items: center;
 }
