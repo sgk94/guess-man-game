@@ -1,5 +1,9 @@
 /*----- constants -----*/ 
-var celebs= [
+const buzzer = new Audio('http://freesound.org/data/previews/164/164090_2975503-lq.mp3')
+const matchSound = new Audio('http://freesound.org/data/previews/448/448274_8282364-lq.mp3')
+const happy = new Audio('audio/happy.mp3');
+const brunomagic = new Audio ('audio/24kmagic.mp3');
+const celebs = [
  {
      name: 'Pharrell Williams',
      age: 46,
@@ -82,30 +86,43 @@ function renderName() {
 
 function checkAnswer() {
     if (guessInt === currentAnswer && turn < 5) {
+        matchSound.play();
         document.getElementById('alert').textContent = "Correct!";
         var nextInterval = setInterval(function() {
           renderNext();
           clearInterval(nextInterval);
-        }, 1500);
+        }, 1000);
     }
     else if (guessInt === currentAnswer && turn === 5) {
         document.getElementById('alert').textContent = "You survived!";
     } 
-    else if (life === 1) {
-        life--;
+    else if (life === 0) {
         document.getElementById('alert').textContent = "You blew up!";
         bomb.setAttribute('src', 'images/boom.png');
-        document.querySelector('form').style.display = "none";
+        document.querySelector('form').style.display = "none";  
         document.getElementById('nextCard').style.display = "none";
         document.getElementById('restart').style.display = "block";
     } 
     else if (guessInt > currentAnswer) {
         life--;
+        buzzer.volume = 1;
+        buzzer.play();
         document.getElementById('alert').textContent = "Incorrect, they are younger";
+        var ageInterval = setInterval(function() {
+          document.getElementById('alert').textContent = "Guess their age";
+          clearInterval(ageInterval);
+        }, 2000);
+        
     } 
     else if (guessInt < currentAnswer) {
         life--;
+        buzzer.volume = 1;
+        buzzer.play();
         document.getElementById('alert').textContent = "Incorrect, they are older"
+        var ageInterval = setInterval(function() {
+          document.getElementById('alert').textContent = "Guess their age";
+          clearInterval(ageInterval);
+        }, 2000);
     }
     else return checkAnswer;
 }
@@ -148,6 +165,8 @@ function renderNext() {
     if(turn === 0) {
         count--;
         card.setAttribute('src', 'images/pharrell.png');
+        happy.volume = .4;
+        happy.play();
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
@@ -157,6 +176,7 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age";
     } 
     else if(turn === 1) {
+      happy.pause();
         card.setAttribute('src', 'images/stefani.png');
         deckCount.innerHTML = count;
         renderName();
@@ -178,6 +198,8 @@ function renderNext() {
     } 
     else if(turn === 3) {
         card.setAttribute('src', 'images/bruno.png');
+        brunomagic.volume = .4;
+        brunomagic.play();
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
@@ -187,6 +209,7 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age";
     } 
     else if(turn === 4) {
+        brunomagic.pause();
         card.setAttribute('src', 'images/clarkson.png');
         deckCount.innerHTML = count;
         renderName();
@@ -194,6 +217,7 @@ function renderNext() {
         turn++
         renderAnswer();
         document.getElementById('alert').textContent = "Guess their age"; 
+        
     } 
     else return renderNext;
 }
