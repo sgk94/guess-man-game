@@ -276,5 +276,5 @@ function init() {
     deckCount.innerHTML = count;
     bomb.setAttribute('src', 'images/bomb.png');
     document.getElementById('bombBoard').append(bomb);
-    celebName.innerHTML = " ";
+    celebName.innerHTML = "Singers";
 }
