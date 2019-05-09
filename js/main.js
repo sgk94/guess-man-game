@@ -52,7 +52,7 @@ let card = document.createElement('img');
 let input = document.getElementById('number');
 let celebName = document.querySelector('h1');
 let myArray = [];
-let life = 5;
+let life;
 let restartlife = life;
 let guess;
 let guessInt;
@@ -72,6 +72,7 @@ function restartHandler() {
     document.querySelector('form').style.display = "block";
     document.getElementById('nextCard').style.display = "block";
     document.getElementById('restart').style.display = "none";
+   document.body.querySelector('h1').style.display = "block";
 }
 
 function renderName() {
@@ -265,14 +266,15 @@ function renderNext() {
 }
 
 function init() {
-    card.setAttribute('src', 'images/empty.png')
-    document.getElementById('gameboard').append(card)
-    document.getElementById('alert').textContent = "Press Skip to start"
-    lifeCount.innerHTML = 5;
-    life = 5;
+    card.setAttribute('src', 'images/empty.png');
+    document.getElementById('gameboard').append(card);
+    document.getElementById('alert').textContent = "Press Skip to start";
     turn = 0;
-    count = 5;
+    life = 10;
+    count = 10;
+    lifeCount.innerHTML = life;
     deckCount.innerHTML = count;
-    bomb.setAttribute('src', 'images/bomb.png')
-    document.getElementById('bombBoard').append(bomb)
+    bomb.setAttribute('src', 'images/bomb.png');
+    document.getElementById('bombBoard').append(bomb);
+    celebName.innerHTML = " ";
 }
