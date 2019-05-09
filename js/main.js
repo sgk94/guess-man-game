@@ -2,7 +2,13 @@
 const buzzer = new Audio('http://freesound.org/data/previews/164/164090_2975503-lq.mp3')
 const matchSound = new Audio('http://freesound.org/data/previews/448/448274_8282364-lq.mp3')
 const happy = new Audio('audio/happy.mp3');
+const stefani = new Audio ('audio/stefani.mp3');
+const mendes = new Audio ('audio/mendes.mp3');
 const brunomagic = new Audio ('audio/24kmagic.mp3');
+const puth = new Audio ('audio/puth.mp3');
+const bombdefused = new Audio ('audio/bombdefused.mp3');
+const kidsyay = new Audio ('audio/kidsyay.mp3');
+
 const celebs = [
  {
      name: 'Pharrell Williams',
@@ -25,9 +31,9 @@ const celebs = [
      img: 'images/bruno.png'
  },
  {
-     name: 'Kelly Clarkson',
-     age: 37,
-     img: 'images/clarkson.png'
+     name: 'Charlie Puth',
+     age: 27,
+     img: 'images/puth.png'
  }
 ];
 /*----- app's state (variables) -----*/ 
@@ -44,7 +50,8 @@ let card = document.createElement('img');
 let input = document.getElementById('number');
 let celebName = document.querySelector('h1');
 let myArray = [];
-let life = 10;
+let life = 5;
+let restartlife = life;
 let guess;
 let guessInt;
 let currentAnswer;
@@ -94,9 +101,21 @@ function checkAnswer() {
         }, 1000);
     }
     else if (guessInt === currentAnswer && turn === 5) {
-        document.getElementById('alert').textContent = "You survived!";
+        puth.pause();
+        document.getElementById('alert').textContent = "You defused the bomb!";
+        bombdefused.volume = .8;
+        bombdefused.play();
+        var celebration = setInterval(function() {
+        kidsyay.play();
+        clearInterval(celebration);
+        }, 2000);
     } 
     else if (life === 0) {
+        puth.pause();
+        brunomagic.pause();
+        mendes.pause();
+        happy.pause();
+        stefani.pause();
         document.getElementById('alert').textContent = "You blew up!";
         bomb.setAttribute('src', 'images/boom.png');
         document.querySelector('form').style.display = "none";  
@@ -176,8 +195,10 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age";
     } 
     else if(turn === 1) {
-      happy.pause();
+        happy.pause();
         card.setAttribute('src', 'images/stefani.png');
+        stefani.volume = .4;
+        stefani.play();
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
@@ -187,7 +208,10 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age"; 
     } 
     else if(turn === 2) {
+        stefani.pause();
         card.setAttribute('src', 'images/smendes.png');
+        mendes.volume = .4;
+        mendes.play();
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
@@ -197,6 +221,7 @@ function renderNext() {
         document.getElementById('alert').textContent = "Guess their age";
     } 
     else if(turn === 3) {
+        mendes.pause();
         card.setAttribute('src', 'images/bruno.png');
         brunomagic.volume = .4;
         brunomagic.play();
@@ -210,7 +235,9 @@ function renderNext() {
     } 
     else if(turn === 4) {
         brunomagic.pause();
-        card.setAttribute('src', 'images/clarkson.png');
+        card.setAttribute('src', 'images/puth.png');
+        puth.volume = .3;
+        puth.play();
         deckCount.innerHTML = count;
         renderName();
         celebName.innerHTML = cName;
@@ -226,7 +253,7 @@ function init() {
     card.setAttribute('src', 'images/empty.png')
     document.getElementById('gameboard').append(card)
     document.getElementById('alert').textContent = "Press next to start"
-    lifeCount.innerHTML = life;
+    lifeCount.innerHTML = 5;
     turn = 0;
     count = 5;
     deckCount.innerHTML = count;
