@@ -271,7 +271,7 @@ function init() {
     document.getElementById('alert').textContent = "Press Skip to start";
     turn = 0;
     life = 10;
-    count = 10;
+    count = 5;
     lifeCount.innerHTML = life;
     deckCount.innerHTML = count;
     bomb.setAttribute('src', 'images/bomb.png');
