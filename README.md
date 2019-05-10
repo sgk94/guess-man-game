@@ -22,6 +22,8 @@ Guess Man is a game that involves a little luck and pop culture knowledge. A hom
 ### How to Play
 The ultimate goal of the game is simple. Don't complete a hang man. You, the player, will be presented a set amount of cards. Each card will have the face of an individual and you must guess their exact age. If you fail to guess the correct age of the card, the life counter will go down once. You get up to 3 guesses before you are penalized. Get through the entire set of cards to win, lose by completing a hangman. 
 
+[Click to play](https://sgk94.github.io/guess-man-game/)
+
 ---
 
 ## 2. **Technologies Used**
