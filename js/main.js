@@ -109,7 +109,7 @@ function checkAnswer() {
         document.getElementById('alert').textContent = "You defused the bomb!";
         celebName.style.display = "none";
         card.setAttribute('src', 'images/thumbsup.jpg');
-        bombdefused.volume = .8;
+        bombdefused.volume = .7;
         bombdefused.play();
         var celebration = setInterval(function() {
         kidsyay.play();
@@ -140,7 +140,7 @@ function checkAnswer() {
     } 
     else if (guessInt > currentAnswer) {
         life--;
-        buzzer.volume = 1;
+        buzzer.volume = .8;
         buzzer.play();
         document.getElementById('alert').textContent = "Incorrect, they are younger";
         var ageInterval = setInterval(function() {
@@ -151,7 +151,7 @@ function checkAnswer() {
     } 
     else if (guessInt < currentAnswer) {
         life--;
-        buzzer.volume = 1;
+        buzzer.volume = .8;
         buzzer.play();
         document.getElementById('alert').textContent = "Incorrect, they are older"
         var ageInterval = setInterval(function() {
@@ -200,7 +200,7 @@ function renderNext() {
     if(turn === 0) {
         count--;
         card.setAttribute('src', 'images/pharrell.png');
-        happy.volume = .4;
+        happy.volume = .2;
         happy.play();
         deckCount.innerHTML = count;
         renderName();
@@ -213,7 +213,7 @@ function renderNext() {
     else if(turn === 1) {
         happy.pause();
         card.setAttribute('src', 'images/stefani.png');
-        stefani.volume = .4;
+        stefani.volume = .2;
         stefani.play();
         deckCount.innerHTML = count;
         renderName();
@@ -226,7 +226,7 @@ function renderNext() {
     else if(turn === 2) {
         stefani.pause();
         card.setAttribute('src', 'images/smendes.png');
-        mendes.volume = .4;
+        mendes.volume = .2;
         mendes.play();
         deckCount.innerHTML = count;
         renderName();
@@ -239,7 +239,7 @@ function renderNext() {
     else if(turn === 3) {
         mendes.pause();
         card.setAttribute('src', 'images/bruno.png');
-        brunomagic.volume = .4;
+        brunomagic.volume = .2;
         brunomagic.play();
         deckCount.innerHTML = count;
         renderName();
@@ -252,7 +252,7 @@ function renderNext() {
     else if(turn === 4) {
         brunomagic.pause();
         card.setAttribute('src', 'images/puth.png');
-        puth.volume = .3;
+        puth.volume = .2;
         puth.play();
         deckCount.innerHTML = count;
         renderName();
