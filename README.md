@@ -43,7 +43,7 @@ The ultimate goal of the game is simple. Don't blow up. You, the player, will be
 ### Set-up 
 To get started, make sure to read the instructions carefully so you understand the win objective and penalties that lead to a loss. 
 
-After you have thoroughly read the instructions, press start to begin! 
+After you have thoroughly read the instructions, press Skip to begin! 
 
 ---
 
