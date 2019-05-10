@@ -50,9 +50,26 @@ Be sure to use the Age Range Indicator to give you  a more calculated guess. Be 
 
 ## 4. **Next Steps**
 
+- Add more celebrities to guess from
+- Add different categories
+- Improve to the overall lay out and fine tune CSS
+
+
 ---
 
 ## 5. **Images**
+Start Screen
+![start screen](/images/start.png)
+
+Render
+![start screen](/images/render.png)
+
+Win
+![start screen](/images/win.png)
+
+Lose
+![start screen](/images/lose.png)
+
 
 
 
